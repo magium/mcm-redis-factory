@@ -1,17 +1,17 @@
 {
   "name": "magium/redis-factory",
-  "description": "description_text",
+  "description": "A simple factory for creating Redis objects using the Magium Configuration Manager",
   "minimum-stability": "stable",
-  "license": "proprietary",
+  "license": "Apache-2.0",
   "authors": [
     {
-      "name": "author's name",
-      "email": "email@example.com"
+      "name": "Kevin Schroeder",
+      "email": "kschroeder@magiumlib.com"
     }
   ],
   "autoload": {
     "psr-4": {
-
+      "Magium\\RedisFactory\\": "lib"
     },
     "files": [
       "registration.php"
