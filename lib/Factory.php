@@ -13,7 +13,14 @@ class Factory
     const CONFIG_TIMEOUT = 'magium/redis/timeout';
     const CONFIG_DATABASE = 'magium/redis/database';
 
-    public function factory(ConfigurationRepository $config)
+    /**
+     * Creates a configured \Redis instance
+     *
+     * @param ConfigurationRepository $config
+     * @return \Redis
+     */
+
+    public static function factory(ConfigurationRepository $config)
     {
         $redis = new \Redis();
         $host = $config->getValue(self::CONFIG_HOST);
