@@ -7,11 +7,11 @@ use Magium\Configuration\Config\ConfigurationRepository;
 class Factory
 {
 
-    const CONFIG_PERSISTENT = 'magium/redis/persistent';
-    const CONFIG_HOST = 'magium/redis/host';
-    const CONFIG_PORT = 'magium/redis/port';
-    const CONFIG_TIMEOUT = 'magium/redis/timeout';
-    const CONFIG_DATABASE = 'magium/redis/database';
+    const CONFIG_PERSISTENT = 'database/redis/persistent';
+    const CONFIG_HOST = 'database/redis/host';
+    const CONFIG_PORT = 'database/redis/port';
+    const CONFIG_TIMEOUT = 'database/redis/timeout';
+    const CONFIG_DATABASE = 'database/redis/database';
 
     /**
      * Creates a configured \Redis instance
