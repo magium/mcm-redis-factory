@@ -1,0 +1,23 @@
+{
+  "name": "magium/redis-factory",
+  "description": "description_text",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "author's name",
+      "email": "email@example.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+
+    },
+    "files": [
+      "registration.php"
+    ]
+  },
+  "require": {
+    "magium/configuration-manager": "^0.8.21"
+  }
+}
