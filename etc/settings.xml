@@ -1,4 +1,4 @@
-<configuration xmlns="http://www.magiumlib.com/Configuration">
+<magiumConfiguration xmlns="http://www.magiumlib.com/Configuration">
     <section identifier="database">
         <group identifier="redis">
             <element identifier="host">
@@ -26,4 +26,4 @@
             </element>
         </group>
     </section>
-</configuration>
+</magiumConfiguration>
