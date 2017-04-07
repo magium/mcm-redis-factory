@@ -2,7 +2,8 @@
 
 namespace Magium\RedisFactory;
 
-use Magium\Configuration\Config\ConfigurationRepository;
+
+use Magium\Configuration\Config\Repository\ConfigurationRepository;
 
 class Factory
 {
