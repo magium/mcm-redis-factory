@@ -1,28 +1,29 @@
 <magiumConfiguration xmlns="http://www.magiumlib.com/Configuration">
-    <section identifier="database">
-        <group identifier="redis">
-            <element identifier="host">
+    <section identifier="database" label="Database" font-awesome="database">
+        <group identifier="redis" label="Redis">
+            <element identifier="host" label="Host">
                 <description>Hostname for the redis machine</description>
                 <value>localhost</value>
             </element>
-            <element identifier="port">
+            <element identifier="port" label="Port">
                 <description>Port for the server</description>
                 <value>6379</value>
             </element>
-            <element identifier="timeout">
+            <element identifier="timeout" label="Timeout">
                 <description>Connection timeout</description>
                 <value>2.5</value>
             </element>
-            <element identifier="persistent">
+            <element identifier="persistent" label="Use Persistent Connections" source="Magium\Configuration\Source\Switches\YesNo">
                 <description>Should the connection use a persistent connection?</description>
                 <permittedValues>
-                    <value>on</value>
-                    <value>off</value>
+                    <value>0</value>
+                    <value>1</value>
                 </permittedValues>
-                <value>off</value>
+                <value>0</value>
             </element>
-            <element identifier="database">
+            <element identifier="database" label="Default Database Number">
                 <description>The default database number for the connection</description>
+                <value>0</value>
             </element>
         </group>
     </section>

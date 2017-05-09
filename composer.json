@@ -1,5 +1,5 @@
 {
-  "name": "magium/redis-factory",
+  "name": "magium/mcm-redis-factory",
   "description": "A simple factory for creating Redis objects using the Magium Configuration Manager",
   "minimum-stability": "stable",
   "license": "Apache-2.0",
@@ -18,6 +18,6 @@
     ]
   },
   "require": {
-    "magium/configuration-manager": "^0.8.29"
+    "magium/configuration-manager": "^1.0"
   }
 }

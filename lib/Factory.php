@@ -2,7 +2,7 @@
 
 namespace Magium\RedisFactory;
 
-
+use Magium\Configuration\Config\Repository\ConfigInterface;
 use Magium\Configuration\Config\Repository\ConfigurationRepository;
 
 class Factory
@@ -14,31 +14,60 @@ class Factory
     const CONFIG_TIMEOUT = 'database/redis/timeout';
     const CONFIG_DATABASE = 'database/redis/database';
 
+    private $config;
+    protected static $me;
+
+    public function __construct(ConfigInterface $config)
+    {
+        $this->config = $config;
+        self::$me = $this;
+    }
+
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
     /**
-     * Creates a configured \Redis instance
+     * Creates a configured \Redis instance in the object context
      *
-     * @param ConfigurationRepository $config
+     * @param ConfigInterface $config
      * @return \Redis
      */
 
-    public static function factory(ConfigurationRepository $config)
+    public function factory()
     {
         $redis = new \Redis();
-        $host = $config->getValue(self::CONFIG_HOST);
-        $port = $config->getValue(self::CONFIG_PORT);
-        $timeout = $config->getValue(self::CONFIG_TIMEOUT);
+        $host = $this->getConfig()->getValue(self::CONFIG_HOST);
+        $port = $this->getConfig()->getValue(self::CONFIG_PORT);
+        $timeout = $this->getConfig()->getValue(self::CONFIG_TIMEOUT);
 
-        if ($config->getValueFlag(self::CONFIG_PERSISTENT)) {
+        if ($this->getConfig()->getValueFlag(self::CONFIG_PERSISTENT)) {
             $redis->pconnect($host, $port, $timeout);
         } else {
             $redis->connect($host, $port, $timeout);
         }
 
-        if ($config->hasValue(self::CONFIG_DATABASE)) {
-            $redis->select($config->getValue(self::CONFIG_DATABASE));
+        if ($this->getConfig()->hasValue(self::CONFIG_DATABASE)) {
+            $redis->select($this->getConfig()->getValue(self::CONFIG_DATABASE));
         }
 
         return $redis;
+    }
+
+    /**
+     * Creates a configured \Redis instance in the static context
+     *
+     * @param ConfigInterface $config
+     * @return \Redis
+     */
+
+    public static function staticFactory(ConfigInterface $config)
+    {
+        if (!self::$me instanceof self) {
+            new self($config);
+        }
+        return self::$me->factory();
     }
 
 }
