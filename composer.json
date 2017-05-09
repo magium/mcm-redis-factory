@@ -18,6 +18,6 @@
     ]
   },
   "require": {
-    "magium/configuration-manager": "^0.8.29"
+    "magium/configuration-manager": "^1.0"
   }
 }
